@@ -43,39 +43,43 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
+  /* Gamification Colors - Vibrant & Motivational */
+  --primary: oklch(0.62 0.25 142); /* Vibrant Teal/Cyan */
+  --primary-foreground: oklch(0.98 0.01 142);
+  --sidebar-primary: oklch(0.58 0.22 142);
+  --sidebar-primary-foreground: oklch(0.98 0.01 142);
+  
+  /* Achievement Colors */
+  --chart-1: oklch(0.72 0.19 142); /* Bright Teal */
+  --chart-2: oklch(0.68 0.22 142); /* Deep Teal */
+  --chart-3: oklch(0.65 0.24 142); /* Rich Teal */
+  --chart-4: oklch(0.58 0.22 142); /* Dark Teal */
+  --chart-5: oklch(0.52 0.20 142); /* Very Dark Teal */
+  
+  --radius: 1rem;
+  --background: oklch(0.98 0.002 142);
+  --foreground: oklch(0.22 0.02 142);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
+  --card-foreground: oklch(0.22 0.02 142);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --popover-foreground: oklch(0.22 0.02 142);
+  --secondary: oklch(0.88 0.15 32); /* Warm Orange/Amber */
+  --secondary-foreground: oklch(0.22 0.02 142);
+  --muted: oklch(0.92 0.01 142);
+  --muted-foreground: oklch(0.55 0.05 142);
+  --accent: oklch(0.72 0.19 142); /* Bright Teal Accent */
+  --accent-foreground: oklch(0.22 0.02 142);
+  --destructive: oklch(0.63 0.25 25); /* Warm Red */
+  --destructive-foreground: oklch(0.98 0.01 0);
+  --border: oklch(0.92 0.01 142);
+  --input: oklch(0.96 0.005 142);
+  --ring: oklch(0.62 0.25 142);
+  --sidebar: oklch(0.98 0.002 142);
+  --sidebar-foreground: oklch(0.22 0.02 142);
+  --sidebar-accent: oklch(0.88 0.15 32);
+  --sidebar-accent-foreground: oklch(0.22 0.02 142);
+  --sidebar-border: oklch(0.92 0.01 142);
+  --sidebar-ring: oklch(0.62 0.25 142);
 }
 
 .dark {
@@ -119,6 +123,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -158,6 +169,31 @@
   .flex {
     min-height: 0;
     min-width: 0;
+  }
+  
+  /* Gamification-specific styles */
+  .mission-card {
+    @apply rounded-2xl border-2 border-accent/20 bg-card p-6 shadow-sm transition-all hover:shadow-md hover:border-accent/40;
+  }
+  
+  .mission-card.completed {
+    @apply border-accent bg-accent/5;
+  }
+  
+  .points-badge {
+    @apply inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-2 text-sm font-semibold text-accent;
+  }
+  
+  .level-badge {
+    @apply inline-flex items-center justify-center h-16 w-16 rounded-full bg-gradient-to-br from-accent to-secondary text-white font-bold text-lg shadow-lg;
+  }
+  
+  .progress-bar {
+    @apply h-3 rounded-full bg-muted overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-accent to-secondary transition-all duration-500;
   }
 
   @media (min-width: 640px) {
