@@ -4,6 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "vite --host",
     "build": "vite build",
     "start": "NODE_ENV=production node dist/index.js",
